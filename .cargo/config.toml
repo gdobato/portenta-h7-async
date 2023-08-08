@@ -1,0 +1,22 @@
+[alias]
+c = "check"
+be = "build --example"
+ee = "embed --example"
+oe = "objcopy --example"
+
+blinky = "be blinky"
+blinky-probe = "ee blinky"
+blinky-bin = "oe blinky --release -- -O binary target/thumbv7em-none-eabihf/release/examples/blinky.bin"
+
+[build]
+target = "thumbv7em-none-eabihf" # Cortex-M4F and Cortex-M7F (with FPU)
+
+rustflags = [
+  # Use LLD as the default linker
+  "-C",
+  "link-arg=-Tlink.x",
+  "-C",
+  "link-arg=--nmagic",
+  "-C",
+  "link-arg=-Tdefmt.x",
+]
