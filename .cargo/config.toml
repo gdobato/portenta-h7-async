@@ -1,0 +1,12 @@
+[build]
+target = "thumbv7em-none-eabihf" # Cortex-M4F and Cortex-M7F (with FPU)
+
+rustflags = [
+  # Use LLD as the default linker
+  "-C",
+  "link-arg=-Tlink.x",
+  "-C",
+  "link-arg=--nmagic",
+  "-C",
+  "link-arg=-Tdefmt.x",
+]
