@@ -1,6 +1,8 @@
 #![no_std]
 
+pub mod led;
 pub mod panic;
+mod sys;
 use embassy_stm32::{
     gpio::{Level, Output, Speed},
     peripherals,
@@ -22,6 +24,7 @@ impl<'a> Board<'a> {
     }
 
     pub fn setup() -> Self {
+        sys::Clk::new().reset().enable_ext_clock();
         let p = embassy_stm32::init(Default::default());
         let led_red = Output::new(p.PK5, Level::High, Speed::Low);
         let led_green = Output::new(p.PK6, Level::High, Speed::Low);
