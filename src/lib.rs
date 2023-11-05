@@ -10,13 +10,13 @@ use embassy_stm32::{
 
 use core::sync::atomic::{AtomicBool, Ordering};
 
-pub struct Board<'a> {
-    pub led_red: Output<'a, peripherals::PK5>,
-    pub led_green: Output<'a, peripherals::PK6>,
-    pub led_blue: Output<'a, peripherals::PK7>,
+pub struct Board {
+    pub led_red: Output<'static, peripherals::PK5>,
+    pub led_green: Output<'static, peripherals::PK6>,
+    pub led_blue: Output<'static, peripherals::PK7>,
 }
 
-impl<'a> Board<'a> {
+impl Board {
     pub fn take() -> Self {
         static TAKEN: AtomicBool = AtomicBool::new(false);
         debug_assert!(!TAKEN.swap(true, Ordering::SeqCst));
