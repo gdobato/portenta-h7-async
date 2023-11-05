@@ -1,6 +1,7 @@
 [default.general]
 chip = "STM32H747XIHx"
 connect_under_reset = false
+log_level = "WARN"
 
 [default.probe]
 protocol = "Swd"
@@ -16,3 +17,7 @@ halt_afterwards = false
 
 [default.rtt]
 enabled = true
+
+channels = [
+    { up = 0, down = 0, format = "Defmt" },
+]

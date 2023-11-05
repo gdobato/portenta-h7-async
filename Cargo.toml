@@ -42,8 +42,8 @@ embassy-time = { version = "0.1.2", git = "https://github.com/embassy-rs/embassy
 embassy-usb = { version = "0.1.0", git = "https://github.com/embassy-rs/embassy.git", features = [
   "defmt",
 ] }
-defmt = "0.3.5"
-defmt-rtt = "0.4"
+defmt = "=0.3.2"
+defmt-rtt = "0.4.0"
 embedded-hal = "0.2.6"
 embedded-io = "0.6.1"
 panic-probe = { version = "0.3", features = ["print-defmt"] }
