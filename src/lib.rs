@@ -53,8 +53,8 @@ impl Board {
             p.PI9,
             p.PA0,
             Irqs,
-            p.PA15,
-            p.PB0,
+            p.PA15, // TODO Set PI10
+            p.PB0,  // TODO Set PI13
             p.DMA1_CH0,
             p.DMA1_CH1,
             Default::default(),
@@ -67,8 +67,8 @@ impl Board {
             p.PA10,
             p.PA9,
             Irqs,
-            p.PA12,
-            p.PA11,
+            p.PA12, // TODO Set PI14
+            p.PA11, // TODO Set PI15
             p.DMA1_CH2,
             p.DMA1_CH3,
             Default::default(),
