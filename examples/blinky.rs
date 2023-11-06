@@ -6,11 +6,12 @@ use defmt::info;
 use defmt_rtt as _;
 use embassy_executor::{main, task, Spawner};
 use embassy_time::Timer;
+use panic_probe as _;
 use portenta_h7_async::led;
 
 #[main]
 async fn main(spawner: Spawner) {
-    info!("Starting");
+    info!("Init");
     let portenta_h7_async::Board {
         led_red,
         led_blue,
