@@ -13,16 +13,16 @@ use embassy_stm32::{
     Config,
 };
 
-#[cfg(feature="usb")]
+#[cfg(feature = "usb")]
 use embassy_stm32::usb_otg::{self, Driver};
 
-#[cfg(not(feature="usb"))]
+#[cfg(not(feature = "usb"))]
 bind_interrupts!(struct Irqs {
     USART1 => usart::InterruptHandler<peripherals::USART1>;
     UART4 => usart::InterruptHandler<peripherals::UART4>;
 });
 
-#[cfg(feature="usb")]
+#[cfg(feature = "usb")]
 bind_interrupts!(struct Irqs {
     USART1 => usart::InterruptHandler<peripherals::USART1>;
     UART4 => usart::InterruptHandler<peripherals::UART4>;
@@ -32,18 +32,17 @@ bind_interrupts!(struct Irqs {
 // Naming according to breakout board
 pub type Uart0 = Uart<'static, peripherals::UART4, peripherals::DMA1_CH0, peripherals::DMA1_CH1>;
 pub type Uart1 = Uart<'static, peripherals::USART1, peripherals::DMA1_CH2, peripherals::DMA1_CH3>;
-#[cfg(feature="usb")]
+#[cfg(feature = "usb")]
 pub type Usb = Driver<'static, peripherals::USB_OTG_HS>;
-
 
 pub struct Board {
     pub led_red: Output<'static, peripherals::PK5>,
     pub led_green: Output<'static, peripherals::PK6>,
     pub led_blue: Output<'static, peripherals::PK7>,
-    #[cfg(not(feature="usb"))]
+    #[cfg(not(feature = "usb"))]
     pub uart0: Uart0,
     pub uart1: Uart1,
-    #[cfg(feature="usb")]
+    #[cfg(feature = "usb")]
     pub usb: Usb,
 }
 
@@ -73,7 +72,7 @@ impl Board {
         let led_green = Output::new(p.PK6, Level::High, Speed::Low);
         let led_blue = Output::new(p.PK7, Level::High, Speed::Low);
 
-        #[cfg(not(feature="usb"))]
+        #[cfg(not(feature = "usb"))]
         let uart0 = Uart::new_with_rtscts(
             p.UART4,
             p.PI9,
@@ -101,13 +100,13 @@ impl Board {
         )
         .unwrap();
 
-        #[cfg(feature="usb")]
+        #[cfg(feature = "usb")]
         let usb;
 
-        #[cfg(feature="usb")] 
+        #[cfg(feature = "usb")]
         {
             use static_cell::make_static;
-            
+
             // Create the USB driver, from the HAL.
             let mut config = embassy_stm32::usb_otg::Config::default();
             config.vbus_detection = true;
@@ -135,11 +134,11 @@ impl Board {
             led_red,
             led_green,
             led_blue,
-            #[cfg(not(feature="usb"))]
+            #[cfg(not(feature = "usb"))]
             uart0,
             uart1,
-            #[cfg(feature="usb")]
-            usb
+            #[cfg(feature = "usb")]
+            usb,
         }
     }
 }

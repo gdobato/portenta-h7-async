@@ -17,7 +17,7 @@ cortex-m = { version = "0.7.6", features = [
 ] }
 cortex-m-rt = "0.7"
 
-embassy-stm32 = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https://github.com/embassy-rs/embassy.git", features = [
+embassy-stm32 = { rev = "b4bc9ac028568dfb3896dfb00cbd1e181863fd64", git = "https://github.com/embassy-rs/embassy.git", features = [
   "defmt",
   "stm32h747xi-cm7",
   "unstable-pac",
@@ -26,13 +26,15 @@ embassy-stm32 = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https
   "exti",
   "embedded-sdmmc",
   "chrono",
+  "nightly",
+  "unstable-traits",
 ] }
 
-embassy-sync = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https://github.com/embassy-rs/embassy.git", features = [
+embassy-sync = { rev = "b4bc9ac028568dfb3896dfb00cbd1e181863fd64", git = "https://github.com/embassy-rs/embassy.git", features = [
   "defmt",
 ] }
 
-embassy-executor = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https://github.com/embassy-rs/embassy.git", features = [
+embassy-executor = { rev = "b4bc9ac028568dfb3896dfb00cbd1e181863fd64", git = "https://github.com/embassy-rs/embassy.git", features = [
   "nightly",
   "arch-cortex-m",
   "executor-thread",
@@ -41,13 +43,14 @@ embassy-executor = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "ht
   "integrated-timers",
 ] }
 
-embassy-time = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https://github.com/embassy-rs/embassy.git", features = [
+embassy-time = { rev = "b4bc9ac028568dfb3896dfb00cbd1e181863fd64", git = "https://github.com/embassy-rs/embassy.git", features = [
   "defmt",
   "defmt-timestamp-uptime",
   "tick-hz-32_768",
+  "unstable-traits",
 ] }
 
-embassy-usb = { rev = "14f41a71b6ea9dedb4ee5b9c741fe10575772c7d", git = "https://github.com/embassy-rs/embassy.git", features = [
+embassy-usb = { rev = "b4bc9ac028568dfb3896dfb00cbd1e181863fd64", git = "https://github.com/embassy-rs/embassy.git", features = [
   "defmt",
 ] }
 
